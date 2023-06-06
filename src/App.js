@@ -1,23 +1,12 @@
-import logo from './logo.svg';
+
 import './App.css';
+import CrudApp from './components/CrudApp';
 
 function App() {
+  //aquí en App declaramos qué componentes se van a mostrar en pantalla, en este caso <CrudApp/> que a su vez contiene los demás componentes
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CrudApp/> 
     </div>
   );
 }

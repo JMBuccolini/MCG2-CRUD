@@ -1,0 +1,14 @@
+{
+  "personajes": [
+    {
+      "name": "Luke",
+      "lastname": "Skywalker",
+      "id": 1686095203738
+    },
+    {
+      "name": "Padme",
+      "lastname": "Skywalker",
+      "id": 1686095240000
+    }
+  ]
+}
