@@ -18,12 +18,24 @@ function CrudForm({ createData, updateData, dataToEdit, setDataToEdit }) {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!form.name || !form.lastname) {
+  const handleSubmit = (e) => { //Esta función se dispara cuando el usuario hace click en "Enviar"
+    e.preventDefault();//Detiene el comportamiento por defecto del evento, en este caso sería el "submit"
+
+    const dataRegEx = /^[A-Z][a-z]+$/ //Esta expresión regular, acepta solamente caracteres de la "a" a la "z" siendo solamente la 1ra mayúscula.
+
+
+    if (!form.name || !form.lastname) { //Previene que algún input se envíe vacío
       alert("Datos incompletos");
+      return;//corta la ejecución de la función 
+    }
+
+    //dataRegEx.test(form.name)---> da true o false. Si el usuario ingresa un caracter erróneo, esto da "false". !false === true
+    if(!dataRegEx.test(form.name) || !dataRegEx.test(form.lastname)){
+      //instrucciones
+      alert('Debes colocar solamente letras.Ten en cuenta que solo la 1ra debe ser mayúscula.');
       return;
     }
+  
 
     if (form.id === null) {
       createData(form);
@@ -48,9 +60,7 @@ function CrudForm({ createData, updateData, dataToEdit, setDataToEdit }) {
     }
   }, [dataToEdit]); //cada vez que dataToEdit cambie, useEffect accionará las instrucciones nuevamente
 
-
   //form = {name: Padme, lastname:Amidala, id:1686095240000}
-
 
   return (
     <div>
